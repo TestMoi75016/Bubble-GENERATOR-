@@ -1,0 +1,29 @@
+body {
+  overflow: hidden; /*Empeche d'avoir un ascenseur sur la viewport en bas et à droite*/
+  min-height: 100vh;
+  cursor: crosshair;  /*Souris se transforme en croix*/
+  
+}
+.bubble {
+  position: absolute; /* Car je veux son positionnement (top/left) où je le souhaite. */
+  border-radius: 300px;  /*Elles seront très rondes*/ 
+  background: rgba(255, 166, 0, 0.6);
+  opacity: 0;
+  animation: anim 8s forwards; /* forwards: Bulle reste ds son dernier état à la fin de l'animation au lieu de disappear suddenly*/
+  filter: hue-rotate(0deg); 
+}
+/* DONNER COULEURS ALEATOIRES A LA BULLE: */
+ @keyframes anim {
+  to {
+    top: -250px;  /* Bulle à sa création de SE DIRIGE VERS le haut , + haut que les onglets pour qu'on ne la voit plus, à  -250px du top*/
+    left: var(--left);  /*La direction vers gauche ou droite doit être aléatoire dc à faire en JS */
+    opacity: 1; /*Bulle devient de plus en plus visible en montant*/
+    filter: hue-rotate(720deg); /*Fera 2 tours de la palettes de couleurs de la roue chromatique (360x2= 720) */
+  }
+} 
+ h3 {
+  font-size: 10rem;
+  text-align: center;
+  margin-top: 20px;
+  color: rgba(128, 128, 128, 0.555);
+} 
